@@ -9,6 +9,26 @@
 
 /******************************************************************************
 * 
+*    ---------------------- Example -----------------
+#include <stdio.h>
+#include "JsonParser.h"
+
+static const char *JSON_STRING =
+    "{\"user\": \"johndoe\", \"admin\": 55, \"uid\": 100,\n  "
+    "\"groups\": [\"users\", \"wheel\", \"audio\", \"video\"]}";
+
+int main()
+{
+    jsmnData data = {0};
+    jsonGetData(JSON_STRING, "admin", &data);
+
+    if (JSMN_PRIMITIVE == data.type)
+    {
+        printf(" int val :%d", data.val);
+    }
+
+    return 0;
+}
 ******************************************************************************/
 /******************************IFNDEF & DEFINE********************************/
 #ifndef JSONPARSER_H_
